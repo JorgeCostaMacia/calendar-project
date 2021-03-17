@@ -1,0 +1,195 @@
+@import 'environment'
+
+.chromeframe
+  margin: 0.2em 0
+  background: map-get($colors, "chromeframe-background")
+  color: map-get($colors, "black")
+  padding: 0.2em 0
+
+.wrapper
+  width: 100%
+  margin: 0 auto
+  max-width: map-get($breackpoints, "min-lg") + px
+  position: relative
+
+.regular-header
+  margin-top: header-height() + px
+
+.regular-sidebar
+  margin-left: map-get($header, 'hamburguer') + 1 + px
+
+///**
+// * Main content containers
+// * 1. Make the container full-width with a maximum width
+// * 2. Center it in the viewport
+// * 3. Leave some space on the edges, especially valuable on small screens
+// */
+//.container
+//  max-width: map-get($breackpoints, "max-lg") + px /* 1 */
+//  margin-left: auto /* 2 */
+//  margin-right: auto /* 2 */
+//  padding-left: 20px /* 3 */
+//  padding-right: 20px /* 3 */
+//  width: 100% /* 1 */
+
+.row
+  width: 100%
+
+.three-fourth
+  width: 75%
+
+.half
+  width: 50%
+
+.third
+  width: 33.333%
+
+.fourth
+  width: 25%
+
+.fifth
+  width: 20%
+
+.left
+  float: left
+
+.right
+  float: right
+
+.align
+  width: 100%
+  height: 100%
+  display: table
+  > div
+    display: table-cell
+    vertical-align: middle
+
+.flex
+  display: flex
+  flex-wrap: wrap
+  &.no-wrap > .post
+    width: 100%
+
+.flex-centering
+  @include centerFlexbox(true,true)
+
+.flex-row-centering
+  @include centerFlexbox()
+
+.flex-br
+  flex-basis: 100%
+  width: 0
+  height: 0
+
+.nondisplayed
+  display: none
+
+.hide-item
+  opacity: 0
+  visibility: hidden
+  transition: opacity .3s ease-out, visibility .3s ease-out
+
+.show-item
+  opacity: 1
+  visibility: visible
+  transition: opacity .3s ease-out, visibility .3s ease-out
+
+.clearfix
+  @include clearfix()
+
+.relative
+  position: relative
+
+///**
+// * Hide text while making it readable for screen readers
+// * 1. Needed in WebKit-based browsers because of an implementation bug;
+// *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+// */
+//.hide-text
+//  overflow: hidden
+//  padding: 0 /* 1 */
+//  text-indent: 101%
+//  white-space: nowrap
+
+///**
+// * Hide element while making it readable for screen readers
+// * Shamelessly borrowed from HTML5Boilerplate:
+// * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+// */
+//.visually-hidden
+//  border: 0
+//  clip: rect(0 0 0 0)
+//  height: 1px
+//  margin: -1px
+//  overflow: hidden
+//  padding: 0
+//  position: absolute
+//  width: 1px
+
+.section
+  padding-top: 1rem
+  padding-bottom: 1rem
+  &--top
+    padding-top: 1rem
+  &--bottom
+    padding-bottom: 1rem
+
+.space
+  padding-left: 1rem
+  padding-right: 1rem
+  &--left
+    padding-left: 1rem
+  &--right
+    padding-right: 1rem
+
+
+@include mq-max-lg()
+  .section
+    padding-top: 0.75rem
+    padding-bottom: 0.75rem
+    &--top
+      padding-top: 0.75rem
+    &--bottom
+      padding-bottom: 0.75rem
+
+  .space
+    padding-left: 0.75rem
+    padding-right: 0.75rem
+    &--left
+      padding-left: 0.75rem
+    &--right
+      padding-right: 0.75rem
+
+@include mq-max-md()
+  .regular-sidebar
+    margin-left: 0
+  .section
+    padding-top: 0.5rem
+    padding-bottom: 0.5rem
+    &--top
+      padding-top: 0.5rem
+    &--bottom
+      padding-bottom: 0.5rem
+  .space
+    padding-left: 0.5rem
+    padding-right: 0.5rem
+    &--left
+      padding-left: 0.5rem
+    &--right
+      padding-right: 0.5rem
+//
+//@include mq-max-sm
+//  .section
+//    padding-top: 1rem
+//    padding-bottom: 1rem
+//    &--top
+//      padding-top: 1rem
+//    &--bottom
+//      padding-bottom: 1rem
+//  .space
+//    padding-left: 1rem
+//    padding-right: 1rem
+//    &--left
+//      padding-left: 1rem
+//    &--right
+//      padding-right: 1rem

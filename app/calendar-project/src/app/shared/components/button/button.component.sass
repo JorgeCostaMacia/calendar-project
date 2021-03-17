@@ -1,0 +1,65 @@
+@import "src/environments/environment"
+
+.button
+  max-width: 100%
+  min-height: 38px
+  box-sizing: border-box
+  display: inline-flex
+  position: relative
+  align-items: center
+  vertical-align: middle
+  justify-content: center
+  padding: .5rem .7rem
+  border-radius: 4px
+  transition: all map-get($transitions, 'linear')
+  color: map-get($colors, 'black')
+  background-color: transparent
+  border: none
+  outline: none
+  &--xs
+    min-height: 35px
+  &--lg
+    min-height: 42px
+  &--round
+    padding: .5rem
+    border-radius: 50%
+  &:hover
+    transition: all map-get($transitions, 'ease')
+  &:not(:disabled):not(&--disabled)
+    cursor: pointer
+  &:disabled, &--disabled
+    cursor: default
+    opacity: .6
+  @each $name, $button in $buttons
+    &--#{$name}
+      color: map-get($button, 'border-event')
+      &:hover:not(:disabled):not(.button--disabled)
+        color: map-get($button, 'border')
+      &:active:not(:disabled):not(.button--disabled)
+        transition: none
+        box-shadow: inset 0 0 10px map-get($button, 'background')
+      &.button
+        &--border
+          border: 1px solid map-get($button, 'border-event')
+          color: map-get($button, 'border-event')
+          box-shadow: 0 2px 4px 0 map-get($button, 'border-event')
+          &:hover:not(:disabled):not(.button--disabled)
+            border: 1px solid  map-get($button, 'border')
+            color: map-get($button, 'border')
+            box-shadow: 0 2px 4px 0 map-get($button, 'border')
+          &:active:not(:disabled):not(.button--disabled)
+            transition: none
+            box-shadow: inset 0 0 10px map-get($button, 'background')
+        &--solid
+          background-color: map-get($button, 'background')
+          border: 1px solid map-get($button, 'border')
+          color: map-get($button, 'color')
+          box-shadow: 0 2px 4px 0 map-get($button, 'border')
+          &:hover:not(:disabled):not(.button--disabled)
+            background-color: map-get($button, 'background-event')
+            border: 1px solid  map-get($button, 'border-event')
+            color: map-get($button, 'color-event')
+            box-shadow: 0 2px 4px 0 map-get($button, 'border-event')
+          &:active:not(:disabled):not(.button--disabled)
+            transition: none
+            box-shadow: inset 0 0 15px 0 map-get($button, 'background')

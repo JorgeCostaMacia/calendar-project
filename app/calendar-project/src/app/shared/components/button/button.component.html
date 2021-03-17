@@ -1,0 +1,9 @@
+<button
+  (click)="onClick()"
+  [style]="{ width: getWidth() }"
+  [type]="getType()"
+  [title]="getTitle()"
+  [disabled]="getDisabled()"
+  class="button {{getThemeClass()}} {{getBorderClass()}} {{getRoundClass()}} {{getSolidClass()}} {{getSizeClass()}}">
+  <ng-content></ng-content>
+</button>

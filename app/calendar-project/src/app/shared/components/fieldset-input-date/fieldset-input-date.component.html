@@ -1,0 +1,54 @@
+<fieldset class="fieldset {{getThemeClass()}}" [formGroup]="form">
+
+  <ng-container *ngIf="getOptions().length === 0">
+    <input *ngIf="getType() !== 'datetime-local'"
+           [type]="getType()"
+           [name]="key"
+           [formControlName]="key"
+           [min]="min"
+           [max]="max"
+           [placeholder]="getPlaceholder()"
+           [title]="title">
+
+    <input *ngIf="getType() === 'datetime-local'"
+           [type]="getType()"
+           [name]="key"
+           [formControlName]="key"
+           [min]="min"
+           [max]="max"
+           [placeholder]="getPlaceholder()"
+           [title]="title">
+  </ng-container>
+
+  <ng-container *ngIf="getOptions().length > 0">
+    <input *ngIf="getType() !== 'datetime-local'"
+           [attr.list]="datalistId"
+           [type]="getType()"
+           [name]="key"
+           [formControlName]="key"
+           [min]="min"
+           [max]="max"
+           [placeholder]="getPlaceholder()"
+           [title]="title">
+
+    <input *ngIf="getType() === 'datetime-local'"
+           [attr.list]="datalistId"
+           [type]="getType()"
+           [name]="key"
+           [formControlName]="key"
+           [min]="min"
+           [max]="max"
+           [placeholder]="getPlaceholder()"
+           [title]="title">
+
+    <datalist [id]="datalistId">
+      <option *ngFor="let option of options"
+              [value]="option.value">
+        {{option.label}}
+      </option>
+    </datalist>
+  </ng-container>
+
+  <app-fieldset-label [text]="label" [theme]="theme"></app-fieldset-label>
+  <app-fieldset-error *ngIf="!getFormControl().disabled && !getFormControl().valid" [validationError]="getFormControl().errors"></app-fieldset-error>
+</fieldset>

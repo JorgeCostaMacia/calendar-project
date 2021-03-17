@@ -1,0 +1,12 @@
+<fieldset class="fieldset {{getThemeClass()}}" [formGroup]="form">
+  <select [formControlName]="key" [name]="key">
+    <option *ngFor="let option of options" [value]="option.value" [disabled]="option.disabled || false">
+      {{option.label}}
+    </option>
+  </select>
+  <svg>
+    <use xlink:href="#ico-arrow-down"></use>
+  </svg>
+  <app-fieldset-label [text]="label" [theme]="theme"></app-fieldset-label>
+  <app-fieldset-error *ngIf="getFormControl() && !getFormControl().disabled && !getFormControl().valid" [validationError]="getFormControl() && getFormControl().errors"></app-fieldset-error>
+</fieldset>

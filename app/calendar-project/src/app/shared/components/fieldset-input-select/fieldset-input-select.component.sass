@@ -1,0 +1,40 @@
+@import "environment"
+
+.fieldset
+  position: relative
+  margin-top: 1rem
+  margin-bottom: 1rem
+  select
+    position: relative
+    width: 100%
+    min-height: 38px
+    box-sizing: border-box
+    padding: .5rem .7rem
+    padding-right: 2.7rem
+    border-radius: 4px
+    @include font-size(map-get($fonts, 'size') - 2)
+    font-weight: 600
+    line-height: 1.30rem
+    text-decoration: none
+    text-transform: uppercase
+    transition: all map-get($transitions, 'linear')
+    color: map-get($colors, 'black')
+    outline: none
+    border: 1px solid map-get($colors, 'black')
+    appearance: none
+  svg
+    transition: all map-get($transitions, 'linear')
+    position: absolute
+    width: 20px
+    height: 20px
+    top: 10px
+    right: 12px
+  @each $name, $fieldset in $fieldsets
+    &--#{$name}
+      select
+        background-color: map-get($fieldset, 'background')
+        &:focus
+          background-color: map-get($fieldset, 'background-event')
+          option:checked
+            color: map-get($fieldset, 'label-color')
+            background-color: map-get($fieldset, 'label-background')

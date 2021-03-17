@@ -1,0 +1,118 @@
+@import 'environment'
+/**
+ * 1. Set up a decent box model on the root element
+ * 2. Set up default font size in rem
+ * 3. Set up Word Break to prevent overflow
+ */
+html
+  box-sizing: border-box /* 1 */
+  @include font-size(16) /* 2 */
+  word-break: break-word
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after
+  box-sizing: inherit
+  scroll-behavior: smooth
+
+/**
+ * Set up default color of scrollbar
+ */
+*::-webkit-scrollbar
+  width: 12px
+
+*::-webkit-scrollbar-track
+  background: lighten(map-get($colors, "secondary"), 40%)
+
+*::-webkit-scrollbar-thumb
+  background-color: map-get($colors, "secondary")
+
+/**
+  * Set up default color of text
+  */
+html,
+button,
+input,
+select,
+textarea
+  color: map-get($colors, "black")
+
+body
+  line-height: 1.4
+  font-family: map-get($fonts, "primary")
+  overflow-x: hidden
+  overflow-y: auto
+  background: map-get($colors, "body-background")
+  @include font-size(16)
+  &.popup--open
+    overflow-y: hidden
+
+::selection
+  background: map-get($colors, "selection-background")
+  color: map-get($colors, "white")
+  text-shadow: none
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid map-get($colors, "hr-border")
+  margin: 1em 0
+  padding: 0
+
+img
+  width: 100%
+  height: auto
+  max-width: 100%
+  vertical-align: middle
+  opacity: 1
+  transition: all map-get($transitions, "linear")
+  &:hover
+    opacity: 0.8
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+textarea
+  resize: vertical
+
+p, li
+  @include font-size(map-get($fonts, "size"))
+h1, h2, h3, h4, h5, h6
+  font-weight: 400
+h1, h2, h3, h4, h5, h6, p
+  margin-top: 0
+h1, .alpha
+  @include font-size(map-get($fonts, "size") + 6)
+h2, .beta
+  @include font-size(map-get($fonts, "size") + 5)
+h3, .gamma
+  @include font-size(map-get($fonts, "size") + 4)
+h4, .delta
+  @include font-size(map-get($fonts, "size") + 3)
+h5, .epsilon
+  @include font-size(map-get($fonts, "size") + 2)
+h6, .zeta
+  @include font-size(map-get($fonts, "size") + 1)
+strong
+  font-weight: 700
+a
+  color: map-get($colors, "black")
+  text-decoration: none
+  &:visited
+    color: inherit
+
+//a
+//  color: map-get($colors, "primary")
+//  text-decoration: none
+//  @include on-event
+//    color: map-get($colors, "black")
+//    text-decoration: underline

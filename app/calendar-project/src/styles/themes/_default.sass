@@ -1,0 +1,106 @@
+@use "../abstracts/variables"
+
+$name: "default"
+$palette: variables.$colors
+$transitions: variables.$transitions
+$breackpoints: variables.$breackpoints
+
+$colors: ()
+$colors: map-merge($colors, ("white": map-get(map-get(variables.$colors, "white"), 0)))
+$colors: map-merge($colors, ("black": map-get(map-get(variables.$colors, "black"), 1)))
+$colors: map-merge($colors, ("grey":  map-get(map-get(variables.$colors, "grey"), 9)))
+
+$colors: map-merge($colors, ("primary":   map-get(map-get(variables.$colors, "blue"), 5)))
+$colors: map-merge($colors, ("secondary": map-get(map-get(variables.$colors, "green"), 4)))
+$colors: map-merge($colors, ("overlay":   transparentize(map-get(map-get(variables.$colors, "black"), 2), 0.3)))
+
+$colors: map-merge($colors, ("info":    map-get(map-get(variables.$colors, "blue"), 12)))
+$colors: map-merge($colors, ("success": map-get(map-get(variables.$colors, "green"), 12)))
+$colors: map-merge($colors, ("warning": map-get(map-get(variables.$colors, "orange"), 12)))
+$colors: map-merge($colors, ("danger":  map-get(map-get(variables.$colors, "red"), 12)))
+
+$colors: map-merge($colors, ("valid":   map-get(map-get(variables.$colors, "green"), 8)))
+$colors: map-merge($colors, ("invalid": map-get(map-get(variables.$colors, "red"), 8)))
+
+$colors: map-merge($colors, ("blockquote-border":      map-get(map-get(variables.$colors, "grey"), 3)))
+$colors: map-merge($colors, ("selection-background":   map-get(map-get(variables.$colors, "grey"), 3)))
+$colors: map-merge($colors, ("chromeframe-background": map-get(map-get(variables.$colors, "grey"), 9)))
+
+$colors: map-merge($colors, ("body-background":   map-get(map-get(variables.$colors, "orange"), 18)))
+$colors: map-merge($colors, ("hr-border":         map-get(map-get(variables.$colors, "grey"), 9)))
+$colors: map-merge($colors, ("input-placeholder": map-get(map-get(variables.$colors, "grey"), 10)))
+$colors: map-merge($colors, ("input-background":  map-get(map-get(variables.$colors, "grey"), 11)))
+
+$header: variables.$header
+$header: map-merge($header, ("background": map-get($colors, "white")))
+$header: map-merge($header, ("shadow-background": map-get($colors, "primary")))
+
+$hamburgers: ()
+$hamburgers: map-merge($hamburgers, ("primary":   ("background": map-get($colors, "primary"),   "background-event": lighten(map-get($colors, "primary"), 15%),   "inner": map-get($colors, "white"), "inner-event": map-get($colors, "white"))))
+$hamburgers: map-merge($hamburgers, ("secondary": ("background": map-get($colors, "secondary"), "background-event": lighten(map-get($colors, "secondary"), 15%), "inner": map-get($colors, "white"), "inner-event": map-get($colors, "white"))))
+
+$buttons: ()
+$buttons: map-merge($buttons, ("primary":   ("background": map-get($colors, "primary"),   "background-event": lighten(map-get($colors, "primary"), 20%),   "border": lighten(map-get($colors, "primary"), 20%),   "border-event": map-get($colors, "primary"),   "color" : map-get($colors, "white"),   "color-event": map-get($colors, "white"),   "count-background": map-get($colors, "secondary"), "count-background-event": lighten(map-get($colors, "secondary"), 20%), "count-color": map-get($colors, "white"), "count-color-event": map-get($colors, "white"))))
+$buttons: map-merge($buttons, ("secondary": ("background": map-get($colors, "secondary"), "background-event": lighten(map-get($colors, "secondary"), 20%), "border": lighten(map-get($colors, "secondary"), 20%), "border-event": map-get($colors, "secondary"), "color" : map-get($colors, "white"),   "color-event": map-get($colors, "white"),   "count-background": map-get($colors, "primary"),   "count-background-event": lighten(map-get($colors, "primary"), 20%),   "count-color": map-get($colors, "white"), "count-color-event": map-get($colors, "white"))))
+$buttons: map-merge($buttons, ("info":      ("background": map-get($colors, "info"),      "background-event": lighten(map-get($colors, "info"), 20%),      "border": lighten(map-get($colors, "info"), 20%),      "border-event": map-get($colors, "info"),      "color" : map-get($colors, "white"),   "color-event": map-get($colors, "white"),   "count-background": map-get($colors, "primary"),   "count-background-event": lighten(map-get($colors, "primary"), 20%),   "count-color": map-get($colors, "white"), "count-color-event": map-get($colors, "white"))))
+$buttons: map-merge($buttons, ("success":   ("background": map-get($colors, "success"),   "background-event": lighten(map-get($colors, "success"), 20%),   "border": lighten(map-get($colors, "success"), 20%),   "border-event": map-get($colors, "success"),   "color" : map-get($colors, "white"),   "color-event": map-get($colors, "white"),   "count-background": map-get($colors, "primary"),   "count-background-event": lighten(map-get($colors, "primary"), 20%),   "count-color": map-get($colors, "white"), "count-color-event": map-get($colors, "white"))))
+$buttons: map-merge($buttons, ("warning":   ("background": map-get($colors, "warning"),   "background-event": lighten(map-get($colors, "warning"), 20%),   "border": lighten(map-get($colors, "warning"), 20%),   "border-event": map-get($colors, "warning"),   "color" : map-get($colors, "white"),   "color-event": map-get($colors, "white"),   "count-background": map-get($colors, "primary"),   "count-background-event": lighten(map-get($colors, "primary"), 20%),   "count-color": map-get($colors, "white"), "count-color-event": map-get($colors, "white"))))
+$buttons: map-merge($buttons, ("danger":    ("background": map-get($colors, "danger"),    "background-event": lighten(map-get($colors, "danger"), 20%),    "border": lighten(map-get($colors, "danger"), 20%),    "border-event": map-get($colors, "danger"),    "color" : map-get($colors, "white"),   "color-event": map-get($colors, "white"),   "count-background": map-get($colors, "primary"),   "count-background-event": lighten(map-get($colors, "primary"), 20%),   "count-color": map-get($colors, "white"), "count-color-event": map-get($colors, "white"))))
+
+$breadcrumbs: ()
+$breadcrumbs: map-merge($breadcrumbs, ("background": map-get($colors, "primary")))
+$breadcrumbs: map-merge($breadcrumbs, ("background-event": lighten(map-get($colors, "primary"), 20%)))
+$breadcrumbs: map-merge($breadcrumbs, ("color": map-get($colors, "white")))
+$breadcrumbs: map-merge($breadcrumbs, ("color-event": map-get($colors, "white")))
+$breadcrumbs: map-merge($breadcrumbs, ("border": map-get($colors, "white")))
+$breadcrumbs: map-merge($breadcrumbs, ("active-background": map-get($colors, "secondary")))
+$breadcrumbs: map-merge($breadcrumbs, ("active-background-event": lighten(map-get($colors, "secondary"), 20%)))
+$breadcrumbs: map-merge($breadcrumbs, ("active-color": map-get($colors, "white")))
+$breadcrumbs: map-merge($breadcrumbs, ("active-color-event": map-get($colors, "white")))
+
+$fieldsets: ()
+$fieldsets: map-merge($fieldsets, ("primary":   ("background": map-get(map-get(variables.$colors, "grey"), 11), "background-event": map-get(map-get(variables.$colors, "grey"), 10), "border": map-get($colors, "black"), "border-event": map-get($colors, "black"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "black"), "label-background": map-get($colors, "primary"),   "placeholder-color": map-get(map-get(variables.$colors, "grey"), 4), "label-background-event": lighten(map-get($colors, "primary"), 20%),   "label-color": map-get($colors, "white"), "label-color-event": map-get($colors, "white"))))
+$fieldsets: map-merge($fieldsets, ("secondary": ("background": map-get(map-get(variables.$colors, "grey"), 11), "background-event": map-get(map-get(variables.$colors, "grey"), 10), "border": map-get($colors, "black"), "border-event": map-get($colors, "black"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "black"), "label-background": map-get($colors, "secondary"), "placeholder-color": map-get(map-get(variables.$colors, "grey"), 4), "label-background-event": lighten(map-get($colors, "secondary"), 20%), "label-color": map-get($colors, "white"), "label-color-event": map-get($colors, "white"))))
+$fieldsets: map-merge($fieldsets, ("info":      ("background": map-get(map-get(variables.$colors, "grey"), 11), "background-event": map-get(map-get(variables.$colors, "grey"), 10), "border": map-get($colors, "black"), "border-event": map-get($colors, "black"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "black"), "label-background": map-get($colors, "info"),      "placeholder-color": map-get(map-get(variables.$colors, "grey"), 4), "label-background-event": lighten(map-get($colors, "info"), 20%),      "label-color": map-get($colors, "white"), "label-color-event": map-get($colors, "white"))))
+$fieldsets: map-merge($fieldsets, ("success":   ("background": map-get(map-get(variables.$colors, "grey"), 11), "background-event": map-get(map-get(variables.$colors, "grey"), 10), "border": map-get($colors, "black"), "border-event": map-get($colors, "black"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "black"), "label-background": map-get($colors, "success"),   "placeholder-color": map-get(map-get(variables.$colors, "grey"), 4), "label-background-event": lighten(map-get($colors, "success"), 20%),   "label-color": map-get($colors, "white"), "label-color-event": map-get($colors, "white"))))
+$fieldsets: map-merge($fieldsets, ("warning":   ("background": map-get(map-get(variables.$colors, "grey"), 11), "background-event": map-get(map-get(variables.$colors, "grey"), 10), "border": map-get($colors, "black"), "border-event": map-get($colors, "black"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "black"), "label-background": map-get($colors, "warning"),   "placeholder-color": map-get(map-get(variables.$colors, "grey"), 4), "label-background-event": lighten(map-get($colors, "warning"), 20%),   "label-color": map-get($colors, "white"), "label-color-event": map-get($colors, "white"))))
+$fieldsets: map-merge($fieldsets, ("danger":    ("background": map-get(map-get(variables.$colors, "grey"), 11), "background-event": map-get(map-get(variables.$colors, "grey"), 10), "border": map-get($colors, "black"), "border-event": map-get($colors, "black"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "black"), "label-background": map-get($colors, "danger"),    "placeholder-color": map-get(map-get(variables.$colors, "grey"), 4), "label-background-event": lighten(map-get($colors, "danger"), 20%),    "label-color": map-get($colors, "white"), "label-color-event": map-get($colors, "white"))))
+
+$panels: ()
+$panels: map-merge($panels, ("primary":   ("background": map-get($colors, "primary"),   "background-event": lighten(map-get($colors, "primary"), 15%),   "border": map-get($colors, "primary"),   "border-event": map-get($colors, "primary"),   "color" : map-get($colors, "white"), "color-event": map-get($colors, "white"))))
+$panels: map-merge($panels, ("secondary": ("background": map-get($colors, "secondary"), "background-event": lighten(map-get($colors, "secondary"), 15%), "border": map-get($colors, "secondary"), "border-event": map-get($colors, "secondary"), "color" : map-get($colors, "white"), "color-event": map-get($colors, "white"))))
+$panels: map-merge($panels, ("info":      ("background": map-get($colors, "info"),      "background-event": lighten(map-get($colors, "info"), 15%),      "border": map-get($colors, "info"),      "border-event": map-get($colors, "info"),      "color" : map-get($colors, "white"), "color-event": map-get($colors, "white"))))
+$panels: map-merge($panels, ("success":   ("background": map-get($colors, "success"),   "background-event": lighten(map-get($colors, "success"), 15%),   "border": map-get($colors, "success"),   "border-event": map-get($colors, "success"),   "color" : map-get($colors, "white"), "color-event": map-get($colors, "white"))))
+$panels: map-merge($panels, ("warning":   ("background": map-get($colors, "warning"),   "background-event": lighten(map-get($colors, "warning"), 15%),   "border": map-get($colors, "warning"),   "border-event": map-get($colors, "warning"),   "color" : map-get($colors, "white"), "color-event": map-get($colors, "white"))))
+$panels: map-merge($panels, ("danger":    ("background": map-get($colors, "danger"),    "background-event": lighten(map-get($colors, "danger"), 15%),    "border": map-get($colors, "danger"),    "border-event": map-get($colors, "danger"),    "color" : map-get($colors, "white"), "color-event": map-get($colors, "white"))))
+
+$loadings: ()
+$loadings: map-merge($loadings, ("primary":   ("color": map-get($colors, "primary"))))
+$loadings: map-merge($loadings, ("secondary": ("color": map-get($colors, "secondary"))))
+$loadings: map-merge($loadings, ("info":      ("color": map-get($colors, "info"))))
+$loadings: map-merge($loadings, ("success":   ("color": map-get($colors, "success"))))
+$loadings: map-merge($loadings, ("warning":   ("color": map-get($colors, "warning"))))
+$loadings: map-merge($loadings, ("danger":    ("color": map-get($colors, "danger"))))
+
+$tables: ()
+$tables: map-merge($tables, ("primary":   ("background": lighten(map-get($colors, "primary"), 65%),   "background-event": map-get($colors, "secondary"), "border": map-get($colors, "primary"),   "border-event": map-get($colors, "white"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "white"), "thead-background": map-get($colors, "primary"),   "thead-background-event": lighten(map-get($colors, "primary"), 15%),   "thead-color" : map-get($colors, "white"), "thead-color-event": map-get($colors, "white"))))
+$tables: map-merge($tables, ("secondary": ("background": lighten(map-get($colors, "secondary"), 65%), "background-event": map-get($colors, "primary"),   "border": map-get($colors, "secondary"), "border-event": map-get($colors, "white"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "white"), "thead-background": map-get($colors, "secondary"), "thead-background-event": lighten(map-get($colors, "secondary"), 15%), "thead-color" : map-get($colors, "white"), "thead-color-event": map-get($colors, "white"))))
+$tables: map-merge($tables, ("info":      ("background": lighten(map-get($colors, "info"), 65%),      "background-event": map-get($colors, "primary"),   "border": map-get($colors, "info"),      "border-event": map-get($colors, "white"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "white"), "thead-background": map-get($colors, "info"),      "thead-background-event": lighten(map-get($colors, "info"), 15%),      "thead-color" : map-get($colors, "white"), "thead-color-event": map-get($colors, "white"))))
+$tables: map-merge($tables, ("success":   ("background": lighten(map-get($colors, "success"), 65%),   "background-event": map-get($colors, "primary"),   "border": map-get($colors, "success"),   "border-event": map-get($colors, "white"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "white"), "thead-background": map-get($colors, "success"),   "thead-background-event": lighten(map-get($colors, "success"), 15%),   "thead-color" : map-get($colors, "white"), "thead-color-event": map-get($colors, "white"))))
+$tables: map-merge($tables, ("warning":   ("background": lighten(map-get($colors, "warning"), 65%),   "background-event": map-get($colors, "primary"),   "border": map-get($colors, "warning"),   "border-event": map-get($colors, "white"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "white"), "thead-background": map-get($colors, "warning"),   "thead-background-event": lighten(map-get($colors, "warning"), 15%),   "thead-color" : map-get($colors, "white"), "thead-color-event": map-get($colors, "white"))))
+$tables: map-merge($tables, ("danger":    ("background": lighten(map-get($colors, "danger"), 65%),    "background-event": map-get($colors, "primary"),   "border": map-get($colors, "danger"),    "border-event": map-get($colors, "white"), "color" : map-get($colors, "black"), "color-event": map-get($colors, "white"), "thead-background": map-get($colors, "danger"),    "thead-background-event": lighten(map-get($colors, "danger"), 15%),    "thead-color" : map-get($colors, "white"), "thead-color-event": map-get($colors, "white"))))
+
+$alerts: ()
+$alerts: map-merge($alerts, ("primary":   ("background": map-get($colors, "primary"),   "border": map-get($colors, "primary")),   "color" : map-get($colors, "white")))
+$alerts: map-merge($alerts, ("secondary": ("background": map-get($colors, "secondary"), "border": map-get($colors, "secondary")), "color" : map-get($colors, "white")))
+$alerts: map-merge($alerts, ("info":      ("background": map-get($colors, "info"),      "border": map-get($colors, "info")),      "color" : map-get($colors, "white")))
+$alerts: map-merge($alerts, ("success":   ("background": map-get($colors, "success"),   "border": map-get($colors, "success")),   "color" : map-get($colors, "white")))
+$alerts: map-merge($alerts, ("warning":   ("background": map-get($colors, "warning"),   "border": map-get($colors, "warning")),   "color" : map-get($colors, "white")))
+$alerts: map-merge($alerts, ("danger":    ("background": map-get($colors, "danger"),    "border": map-get($colors, "danger")),    "color" : map-get($colors, "white")))
+
+$footer: ("background": map-get($colors, "transparent"), "border": map-get($colors, "secondary"), "top-background": map-get($colors, "primary"), "top-color": map-get($colors, "white"), "middle-background": map-get($colors, "transparent"), "middle-color": map-get($colors, "black"), "bottom-background": map-get($colors, "primary"), "bottom-color": map-get($colors, "white"), "license-background": map-get($colors, "secondary"), "license-color": map-get($colors, "white"))
+
+$fonts: ()
+$fonts: map-merge($fonts, ("size":      map-get(variables.$fonts, "size")))
+$fonts: map-merge($fonts, ("primary":   map-get(variables.$fonts, "roboto")))
+$fonts: map-merge($fonts, ("secondary": map-get(variables.$fonts, "montserrat")))

@@ -1,0 +1,19 @@
+@import "environment"
+
+.fieldset--error
+  padding: 0.2rem 0.7rem
+  color: map-get($colors, 'invalid')
+  display: inline-flex
+  flex-wrap: wrap
+  align-content: center
+  vertical-align: middle
+  &--ico
+    position: relative
+    @include svg-size(map-get($fonts, 'size') + 2)
+  &--text
+    position: relative
+    margin-top: auto
+    margin-bottom: auto
+    margin-left: 5px
+    @include font-size(map-get($fonts, 'size') - 2)
+    font-weight: 600

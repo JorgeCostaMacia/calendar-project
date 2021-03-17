@@ -1,0 +1,18 @@
+<table class="table-content">
+  <thead>
+    <tr>
+      <th class="table-content--th">S</th>
+      <th class="table-content--th">M</th>
+      <th class="table-content--th">T</th>
+      <th class="table-content--th">W</th>
+      <th class="table-content--th">T</th>
+      <th class="table-content--th">F</th>
+      <th class="table-content--th">S</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let col of columns">
+      <td class="table-content--td" *ngFor="let row of col">{{row}}</td>
+    </tr>
+  </tbody>
+</table>

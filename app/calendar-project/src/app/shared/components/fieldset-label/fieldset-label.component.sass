@@ -1,0 +1,24 @@
+@import "environment"
+
+.fieldset--label
+  text-transform: uppercase
+  z-index: 1
+  max-width: 97.5%
+  display: block
+  position: absolute
+  top: -10px
+  left: 10px
+  padding: .2rem .3rem
+  border-radius: 2px
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+  color: map-get($colors, "white")
+  background-color: map-get($colors, "black")
+  @include font-size(map-get($fonts, 'size') - 3)
+  font-weight: 600
+  transition: all map-get($transitions, "linear")
+  @each $name, $fieldset in $fieldsets
+    &--#{$name}
+      background-color: map-get($fieldset, 'label-background')
+      color: map-get($fieldset, 'label-color')

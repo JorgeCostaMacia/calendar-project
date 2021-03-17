@@ -1,0 +1,27 @@
+@use "../styles/themes/default" as theme
+@import "../styles/abstracts/functions"
+@import "../styles/abstracts/mixins"
+@import "../styles/abstracts/placeholders"
+
+$end-points: ()
+
+@if theme.$name == "default"
+  $end-points: map-merge($end-points, ("api": "http://localhost:4200/assets/"))
+  $end-points: map-merge($end-points, ("cdn": "http://localhost:4200/assets/"))
+
+$name:         theme.$name
+$palette:      theme.$palette
+$transitions:  theme.$transitions
+$breackpoints: theme.$breackpoints
+$header:       theme.$header
+$colors:       theme.$colors
+$hamburgers:   theme.$hamburgers
+$buttons:      theme.$buttons
+$breadcrumbs:  theme.$breadcrumbs
+$fieldsets:    theme.$fieldsets
+$panels:       theme.$panels
+$loadings:     theme.$loadings
+$tables:       theme.$tables
+$alerts:       theme.$alerts
+$footer:       theme.$footer
+$fonts:        theme.$fonts

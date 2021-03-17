@@ -1,0 +1,38 @@
+/// Calculate the heigh of the header
+/// @author Jorge Costa Maciá
+/// @return {number}
+@function header-height()
+  @return (map-get($header, "border") + map-get($header, "height") + map-get($header, "top-border") + map-get($header, "top-height") + map-get($header, "middle-border") + map-get($header, "middle-height") + map-get($header, "bottom-border") + map-get($header, "bottom-height"))
+
+@function font-size($font-value: map-get($fonts, "size"), $font-value-base: 16)
+  @return ($font-value / $font-value-base) + rem
+
+@function svg-size($fontValue: map-get($fonts, "size"), $fontValueBase: 16)
+  @return ($fontValue / $fontValueBase) + rem
+
+/// Native `url(..)` function wrapper
+/// @author Jorge Costa Maciá
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url}
+@function asset($base, $type, $path)
+  @return url($base + $type + $path)
+
+/// Returns URL to an image based on its path
+/// @author Jorge Costa Maciá
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: map-get($end-points, 'cdn'))
+  @return asset($base, 'images/', $path)
+
+/// Returns URL to a font based on its path
+/// @author Jorge Costa Maciá
+/// @param {String} $path - font path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function font($path, $base: map-get($end-points, 'cdn'))
+  @return asset($base, 'fonts/', $path)

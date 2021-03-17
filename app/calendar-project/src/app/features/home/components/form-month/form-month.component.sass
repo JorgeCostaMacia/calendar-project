@@ -1,0 +1,21 @@
+@import "environment"
+
+.form
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-start
+  &--input
+    width: 70%
+    padding-right: 15px
+  &--button
+    margin-top: 15px
+    width: 30%
+
+@include mq-max-md()
+  .form
+    &--input
+      width: 100%
+      padding-right: 0
+    &--button
+      width: 100%
+      margin-bottom: 50px

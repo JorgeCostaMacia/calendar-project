@@ -1,0 +1,24 @@
+<form class="form" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <section class="form--input">
+    <app-fieldset-input-select
+      [theme]="'primary'"
+      [form]="form"
+      [key]="'month'"
+      [title]="'Selector de mes'"
+      [label]="'Selector de mes'"
+      [options]="monthOptions">
+    </app-fieldset-input-select>
+  </section>
+
+  <section class="form--button">
+    <app-button-text
+      [theme]="'secondary'"
+      [type]="'submit'"
+      [text]="'Cargar'"
+      [solid]="false"
+      [border]="true"
+      [disabled]="!form.valid"
+      [width]="'100%'">
+    </app-button-text>
+  </section>
+</form>

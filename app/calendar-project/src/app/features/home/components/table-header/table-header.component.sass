@@ -1,0 +1,11 @@
+@import "environment"
+
+.table-header
+  text-transform: uppercase
+  text-align: center
+  @include font-size(map-get($fonts, 'size') + 2)
+  color: map-get($colors, 'black')
+  font-weight: bold
+  padding: 1rem
+  border: 1px solid map-get($colors, 'black')
+  border-bottom: none

@@ -1,0 +1,20 @@
+@import "src/environments/environment"
+
+.button
+  &--text
+    position: relative
+    @include font-size(map-get($fonts, 'size'))
+    font-weight: 600
+    line-height: 1.30rem
+    text-decoration: none
+    text-transform: uppercase
+    &--xs
+      @include font-size(map-get($fonts, 'size') - 2)
+      line-height: 1.10rem
+    &--lg
+      @include font-size(map-get($fonts, 'size') + 2)
+      line-height: 1.50rem
+    &--ellipsis
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis

@@ -1,0 +1,10 @@
+@import "environment"
+
+header
+  text-align: center
+  @include font-size(map-get($fonts, 'size') + 8)
+  color: map-get($colors, 'black')
+  font-weight: bold
+  padding-top: 2rem
+  padding-bottom: 2rem
+  border-bottom: 1px solid map-get($colors, 'black')

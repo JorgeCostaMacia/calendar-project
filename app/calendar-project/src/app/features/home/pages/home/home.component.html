@@ -1,0 +1,7 @@
+<app-home-header></app-home-header>
+<main class="wrapper space">
+
+  <app-home-form-month (monthSelected)="onMonthSelected($event)"></app-home-form-month>
+  <app-home-table-header [month]="monthSelected"></app-home-table-header>
+  <app-home-table-content [month]="monthSelected"></app-home-table-content>
+</main>
